@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monsieur Burger - Alta Gastronomia Artesanal</title>
+    <!-- Google Fonts sofisticadas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; transition: all 0.4s ease; }
+        body { background-color: #0a0a0a; color: #e5e5e5; letter-spacing: 0.5px; }
+        
+        /* Botão Voltar Fino */
+        .back-btn { position: fixed; top: 20px; left: 20px; background: rgba(10, 10, 10, 0.85); color: #c5a880; border: 1px solid #c5a880; padding: 12px 24px; border-radius: 0; text-decoration: none; font-size: 0.85rem; uppercase; letter-spacing: 2px; z-index: 9999; box-shadow: 0 4px 20px rgba(0,0,0,0.4); backdrop-filter: blur(5px); }
+        .back-btn:hover { background: #c5a880; color: #0a0a0a; }
+
+        /* Header Elegante */
+        .burger-header { background-color: #0a0a0a; padding: 2rem 5%; display: flex; flex-direction: column; align-items: center; border-bottom: 1px solid rgba(197, 168, 128, 0.2); }
+        .burger-logo { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: #c5a880; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; }
+        .burger-subtitle { font-size: 0.75rem; color: #a3a3a3; letter-spacing: 6px; text-transform: uppercase; margin-top: 0.3rem; }
+
+        /* Hero Premium */
+        .burger-hero { padding: 12rem 5%; text-align: center; background: linear-gradient(rgba(10,10,10,0.65), rgba(10,10,10,0.95)), url('https://images.unsplash.com/photo-1521305916504-4a1121188589?auto=format&fit=crop&w=1200&q=80') center/cover; background-attachment: fixed; }
+        .burger-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; font-weight: 400; color: #ffffff; letter-spacing: 2px; margin-bottom: 1.5rem; line-height: 1.1; }
+        .burger-hero p { font-size: 1.1rem; font-weight: 300; max-width: 600px; margin: 0 auto 2.5rem auto; color: #d4d4d4; line-height: 1.8; font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; }
+        
+        .burger-btn { background: transparent; color: #c5a880; border: 1px solid #c5a880; padding: 14px 40px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; position: relative; overflow: hidden; }
+        .burger-btn:hover { background: #c5a880; color: #0a0a0a; box-shadow: 0 0 25px rgba(197, 168, 128, 0.3); }
+
+        /* Seções */
+        .burger-section { padding: 7rem 8%; }
+        .section-title-wrapper { text-align: center; margin-bottom: 5rem; }
+        .burger-title-sec { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: #ffffff; font-weight: 400; letter-spacing: 2px; }
+        .section-divider { width: 60px; height: 1px; background: #c5a880; margin: 1rem auto 0 auto; }
+
+        /* Menu de Linhas Finas */
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4rem 3rem; }
+        .menu-item { display: flex; flex-direction: column; gap: 1.5rem; background: transparent; padding: 0; border: none; }
+        .menu-img-wrapper { width: 100%; height: 260px; overflow: hidden; position: relative; }
+        .menu-item-img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%); }
+        .menu-item:hover .menu-item-img { transform: scale(1.04); filter: grayscale(0%); }
+        .menu-item-info { display: flex; flex-direction: column; gap: 0.5rem; }
+        .menu-item-header { display: flex; justify-content: space-between; align-items: baseline; }
+        .menu-item-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: #c5a880; }
+        .menu-item-price { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #ffffff; font-weight: 400; }
+        .menu-item-desc { color: #a3a3a3; font-size: 0.9rem; line-height: 1.6; font-weight: 300; }
+
+        /* Seção do Ambiente (Nova) */
+        .ambience-section { background-color: #0f0f0f; border-top: 1px solid rgba(197, 168, 128, 0.1); border-bottom: 1px solid rgba(197, 168, 128, 0.1); }
+        .ambience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .ambience-item { height: 350px; overflow: hidden; position: relative; }
+        .ambience-item img { width: 100%; height: 100%; object-fit: cover; filter: brightness(80%) contract(110%); }
+        .ambience-item:hover img { transform: scale(1.05); filter: brightness(100%); }
+        .ambience-caption { position: absolute; bottom: 0; left: 0; width: 100%; padding: 2rem; background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: #ffffff; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; opacity: 0; transform: translateY(10px); }
+        .ambience-item:hover .ambience-caption { opacity: 1; transform: translateY(0); }
+
+        /* Rodapé de Contato Fino */
+        .burger-footer-info { background: #0a0a0a; padding: 6rem 8%; display: flex; flex-wrap: wrap; gap: 4rem; justify-content: space-between; border-top: 1px solid rgba(197, 168, 128, 0.1); }
+        .burger-info-box { flex: 1; min-width: 250px; }
+        .burger-info-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #c5a880; font-weight: 400; margin-bottom: 1.5rem; letter-spacing: 1px; }
+        .burger-info-box p { color: #a3a3a3; font-size: 0.95rem; line-height: 1.8; font-weight: 300; margin-bottom: 0.5rem; }
+        .fake-map { background: #0f0f0f; height: 200px; display: flex; align-items: center; justify-content: center; color: #737373; border: 1px solid rgba(197, 168, 128, 0.2); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; }
+
+        @media (max-width: 768px) { 
+            .burger-hero h1 { font-size: 2.8rem; } 
+            .burger-section { padding: 4rem 5%; }
+            .burger-footer-info { padding: 4rem 5%; gap: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botão de Voltar -->
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left-long"></i> Retornar ao Hub</a>
+
+    <!-- Header -->
+    <header class="burger-header">
+        <div class="burger-logo">Monsieur Burger</div>
+        <div class="burger-subtitle">Haute Gastronomie</div>
+    </header>
+
+    <!-- Hero -->
+    <section class="burger-hero">
+        <h1>Experiência Sensorial Única</h1>
+        <p>"O encontro perfeito entre cortes nobres de gado Wagyu, técnicas francesas de panificação e a simplicidade elegante do fogo."</p>
+        <button class="burger-btn" onclick="document.getElementById('cardapio').scrollIntoView({behavior: 'smooth'});">Conhecer o Menu</button>
+    </section>
+
+    <!-- Seção do Menu (Cardápio) -->
+    <section class="burger-section" id="cardapio">
+        <div class="section-title-wrapper">
+            <h2 class="burger-title-sec">As Criações da Casa</h2>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="menu-grid">
+            <!-- Item 1 -->
+            <div class="menu-item">
+                <div class="menu-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Le Truffe Burger" class="menu-item-img">
+                </div>
+                <div class="menu-item-info">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Le Truffe Monster</span>
+                        <span class="menu-item-price">R$ 68</span>
+                    </div>
+                    <p class="menu-item-desc">Blend de 180g de carne de raças britânicas, infusão de azeite de trufas brancas, queijo Gruyère derretido e rúcula baby em pão brioche artesanal selado na manteiga de ervas.</p>
+                </div>
+            </div>
+            
+            <!-- Item 2 -->
+            <div class="menu-item">
+                <div class="menu-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80" alt="Brie & Miel" class="menu-item-img">
+                </div>
+                <div class="menu-item-info">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Brie & Miel Caramel</span>
+                        <span class="menu-item-price">R$ 62</span>
+                    </div>
+                    <p class="menu-item-desc">Hambúrguer artesanal grelhado na brasa, fatias espessas de queijo Brie premium, geleia rústica de bacon com redução de mel silvestre e picles de cebola roxa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção do Ambiente (Nova) -->
+    <section class="burger-section ambience-section">
+        <div class="section-title-wrapper">
+            <h2 class="burger-title-sec">Nossa Atmosfera</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="ambience-grid">
+            <div class="ambience-item">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Salão Principal">
+                <div class="ambience-caption">O Salão Principal</div>
+            </div>
+            <div class="ambience-item">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80" alt="Espaço Lounge e Café">
+                <div class="ambience-caption">Lounge & Drinks Contemporâneos</div>
+            </div>
+            <div class="ambience-item">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=600&q=80" alt="Bancada de preparo e detalhes">
+                <div class="ambience-caption">A Cozinha Aberta e Minimalista</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="burger-footer-info">
+        <div class="burger-info-box">
+            <h3>Reservas & Contato</h3>
+            <p><i class="fa-solid fa-location-dot" style="color:#c5a880; margin-right: 8px;"></i> Alameda Lorena, 1420 - Jardins, SP</p>
+            <p><i class="fa-solid fa-clock" style="color:#c5a880; margin-right: 8px;"></i> Quarta a Domingo, das 19h às 00h</p>
+            <p><i class="fa-solid fa-phone" style="color:#c5a880; margin-right: 8px;"></i> (11) 3088-XXXX (Apenas sob reserva)</p>
+        </div>
+        <div class="burger-info-box">
+            <h3>Localização Privilegiada</h3>
+            <div class="fake-map">
+                <span><i class="fa-solid fa-map-location-dot" style="color:#c5a880; margin-right: 8px;"></i> Geolocalização Monsieur</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

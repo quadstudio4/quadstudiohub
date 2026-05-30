@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Barber - Barbearia Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Oswald', sans-serif; transition: all 0.3s ease; }
+        body { background-color: #111111; color: #e5e5e5; }
+        .back-btn { position: fixed; top: 20px; left: 20px; background: rgba(0,0,0,0.8); color: #d4af37; border: 1px solid #d4af37; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 9999; display: flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 0.9rem; }
+        .back-btn:hover { background: #d4af37; color: #000; }
+        .barber-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; background-color: #0a0a0a; border-bottom: 1px solid #2a2a2a; }
+        .barber-logo { font-family: 'Cinzel', serif; color: #d4af37; font-size: 1.8rem; }
+        .barber-hero { padding: 8rem 5%; text-align: center; background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&q=80') center/cover; }
+        .barber-hero h1 { font-family: 'Cinzel', serif; font-size: 4rem; color: #d4af37; margin-bottom: 1rem; }
+        .barber-hero p { font-family: 'Inter', sans-serif; font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem auto; color: #a3a3a3; }
+        .barber-btn { background: #d4af37; color: #000; padding: 12px 35px; text-transform: uppercase; font-weight: bold; border: none; cursor: pointer; letter-spacing: 1px; }
+        .barber-btn:hover { background: #fff; box-shadow: 0 0 15px rgba(212, 175, 55, 0.6); }
+        .barber-section { padding: 5rem 5%; }
+        .barber-section h2 { font-family: 'Cinzel', serif; text-align: center; font-size: 2.5rem; color: #d4af37; margin-bottom: 3rem; }
+        .barber-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .gallery-item { overflow: hidden; border: 4px solid #222; }
+        .gallery-item img { width: 100%; height: 300px; object-fit: cover; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .booking-container { max-width: 600px; margin: 0 auto; background: #161616; padding: 3rem; border: 1px solid #2a2a2a; border-top: 4px solid #d4af37; font-family: 'Inter', sans-serif; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.85rem; color: #a3a3a3; font-family: 'Inter', sans-serif; }
+        .barber-input { width: 100%; padding: 12px; background: #222; border: 1px solid #333; color: #fff; font-family: 'Inter', sans-serif; }
+        .barber-input:focus { outline: none; border-color: #d4af37; }
+        .modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #1e293b; padding: 2.5rem; border-radius: 16px; box-shadow: 0 25px 50px rgba(0,0,0,0.5); z-index: 10000; text-align: center; max-width: 400px; width: 90%; border: 2px solid #10b981; display: none; font-family: 'Inter', sans-serif; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9998; display: none; }
+        @media (max-width: 768px) { .barber-hero h1 { font-size: 2.8rem; } .booking-container { padding: 1.5rem; } }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Voltar ao Hub</a>
+
+    <nav class="barber-nav">
+       <div class="barber-logo" style="text-align: center; width: 100%;">THE BARBER</div>
+        <div style="font-size: 0.9rem; letter-spacing: 2px;">ESTILO & TRADIÇÃO</div>
+    </nav>
+
+    <section class="barber-hero">
+        <h1>Corte de Respeito</h1>
+        <p>Mais do que uma barba e cabelo bem feitos. Proporcionamos uma experiência de alto padrão com profissionais renomados.</p>
+        <button class="barber-btn" onclick="document.getElementById('agendar').scrollIntoView({behavior: 'smooth'});">Agendar Horário</button>
+    </section>
+
+    <section class="barber-section">
+        <h2>Nosso Trabalho</h2>
+        <div class="barber-gallery">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=400&q=80" alt="Corte"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1593702295094-aea22597af65?auto=format&fit=crop&w=400&q=80" alt="Corte"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1605497746444-ac9da5848ba7?auto=format&fit=crop&w=400&q=80" alt="Corte"></div>
+        </div>
+    </section>
+
+    <section class="barber-section" id="agendar" style="background-color: #0d0d0d;">
+        <h2>Agende seu Horário</h2>
+        <div class="booking-container">
+            <form id="barberForm" onsubmit="salvarAgendamento(event)">
+                <div class="form-group">
+                    <label>Nome Completo</label>
+                    <input type="text" class="barber-input" id="nome" required>
+                </div>
+                <div class="form-group">
+                    <label>Telefone</label>
+                    <input type="tel" class="barber-input" id="tel" placeholder="(11) 99999-9999" required>
+                </div>
+                <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <label>Data</label>
+                        <input type="date" class="barber-input" id="data" required>
+                    </div>
+                    <div>
+                        <label>Horário</label>
+                        <input type="time" class="barber-input" id="hora" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Serviço</label>
+                    <select class="barber-input" id="servico">
+                        <option>Corte Masculino (R$ 50)</option>
+                        <option>Barba Design (R$ 40)</option>
+                        <option>Combo Premium (R$ 80)</option>
+                    </select>
+                </div>
+                <button type="submit" class="barber-btn" style="width: 100%; margin-top: 1rem;">Confirmar Reserva</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="overlay"></div>
+    <div class="modal" id="modal">
+        <i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 3.5rem; margin-bottom: 1rem;"></i>
+        <h3 style="color: white; margin-bottom: 0.5rem; font-size: 1.4rem;">Agendado com Sucesso!</h3>
+        <p id="msg" style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.4;"></p>
+        <button class="barber-btn" style="padding: 10px 20px;" onclick="fecharModal()">Fechar</button>
+    </div>
+
+    <script>
+        function salvarAgendamento(e) {
+            e.preventDefault();
+            const dados = {
+                nome: document.getElementById('nome').value,
+                data: document.getElementById('data').value,
+                hora: document.getElementById('hora').value,
+                servico: document.getElementById('servico').value
+            };
+            localStorage.setItem('agendamento_barber', JSON.stringify(dados));
+            document.getElementById('msg').innerText = `Perfeito, ${dados.nome}! Seu horário para ${dados.servico} está reservado para o dia ${dados.data} às ${dados.hora}.`;
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('modal').style.display = 'block';
+            document.getElementById('barberForm').reset();
+        }
+        function fecharModal() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

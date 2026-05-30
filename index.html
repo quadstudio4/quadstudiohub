@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quad Studio Hub - Central de Demonstrações</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; transition: all 0.3s ease; }
+        body { background-color: #0b0f19; color: #ffffff; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; overflow-x: hidden; }
+        #hub-page { background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 50%, #020617 100%); width: 100%; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .hub-container { max-width: 1000px; width: 100%; text-align: center; }
+        .hub-logo { display: inline-flex; align-items: center; gap: 10px; font-size: 2.5rem; font-weight: 800; color: #38bdf8; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 2px; }
+        .hub-logo i { color: #3b82f6; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        .hub-title { font-size: 3.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hub-description { font-size: 1.2rem; color: #94a3b8; max-width: 700px; margin: 0 auto 3.5rem auto; line-height: 1.6; }
+        .hub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
+        .hub-card { background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 2.5rem 2rem; backdrop-filter: blur(10px); display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-decoration: none; color: inherit; position: relative; overflow: hidden; }
+        .hub-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%); opacity: 0; transition: opacity 0.3s ease; }
+        .hub-card:hover { transform: translateY(-8px); border-color: #3b82f6; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .hub-card:hover::before { opacity: 1; }
+        .card-icon { font-size: 3rem; margin-bottom: 1.5rem; }
+        .barber-icon { color: #d4af37; }
+        .vet-icon { color: #10b981; }
+        .burger-icon { color: #ea580c; }
+        .card-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; }
+        .card-desc { font-size: 0.95rem; color: #94a3b8; margin-bottom: 1.5rem; line-height: 1.5; text-align: center; }
+        .hub-btn { background: #3b82f6; color: white; border: none; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 600; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 10px; }
+        .hub-card:hover .hub-btn { background: #2563eb; box-shadow: 0 0 15px rgba(59, 130, 246, 0.5); }
+        @media (max-width: 768px) { .hub-title { font-size: 2.3rem; } .hub-description { font-size: 1rem; } }
+    </style>
+</head>
+<body>
+    <div id="hub-page">
+        <div class="hub-container">
+            <div class="hub-logo" style="display: inline-flex; align-items: center; justify-content: center; gap: 15px;">
+    <img src="img/logo.png" alt="Quad Studio Logo" style="max-height: 90px; width: auto; object-fit: contain;">
+    <span>Quad Studio</span>
+</div>
+            <h1 class="hub-title">Central de Demonstração de Projetos</h1>
+            <p class="hub-description">Nós desenvolvemos aplicações web modernas, ultra-responsivas e focadas em conversão. Escolha um modelo abaixo para visualizar a demonstração do produto real:</p>
+            
+            <div class="hub-grid">
+                <a href="barbearia.html" class="hub-card">
+                    <div style="width: 100%;">
+                        <div class="card-icon barber-icon"><i class="fa-solid fa-scissors"></i></div>
+                        <h3 class="card-title">Barbearia Premium</h3>
+                        <p class="card-desc">Identidade visual marcante no estilo Dark & Gold, equipado com um sistema real de agendamento funcional.</p>
+                    </div>
+                    <div class="hub-btn" style="background: #d4af37; color: #000;">Visualizar Demo <i class="fa-solid fa-chevron-right"></i></div>
+                </a>
+
+                <a href="veterinaria.html" class="hub-card">
+                    <div style="width: 100%;">
+                        <div class="card-icon vet-icon"><i class="fa-solid fa-paw"></i></div>
+                        <h3 class="card-title">Clínica Veterinária</h3>
+                        <p class="card-desc">Interface acolhedora, leve e humanizada. Foco total em conversão via WhatsApp e avaliações de clientes.</p>
+                    </div>
+                    <div class="hub-btn" style="background: #10b981;">Visualizar Demo <i class="fa-solid fa-chevron-right"></i></div>
+                </a>
+
+                <a href="hamburgueria.html" class="hub-card">
+                    <div style="width: 100%;">
+                        <div class="card-icon burger-icon"><i class="fa-solid fa-burger"></i></div>
+                        <h3 class="card-title">Hamburgueria Chique</h3>
+                        <p class="card-desc">Design fino e gastronômico que abre o apetite do cliente. Apresenta cardápio completo estruturado.</p>
+                    </div>
+                    <div class="hub-btn" style="background: #ea580c;">Visualizar Demo <i class="fa-solid fa-chevron-right"></i></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
